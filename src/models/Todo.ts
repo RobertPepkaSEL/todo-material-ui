@@ -1,5 +1,6 @@
-export interface Todo {
+export default interface Todo {
     id: string;
-    name: string;
-    text: any;  // replace with SlateJS type
+    title: string;
+    contents: any;  // replace with SlateJS type
+    done: boolean;
 }

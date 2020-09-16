@@ -23,7 +23,7 @@ export interface TodoAppBarProps {
 
 }
 
-export function TodoAppBar(props: TodoAppBarProps) {
+export default function TodoAppBar(props: TodoAppBarProps) {
   const classes = useStyles();
   
   return (
