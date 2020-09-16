@@ -6,8 +6,7 @@ export function makeDefaultDetails() {
   return [
     {
       children: [
-      { 
-        text: '' },
+        { text: '' },
       ],
     },
   ];

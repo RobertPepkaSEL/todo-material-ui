@@ -33,15 +33,15 @@ export default function TodoAppBar(props: TodoAppBarProps) {
   
   return (
     <AppBar position="static">
-    <Toolbar>
-      <Typography variant="h6" className={classes.title}>
-        Todos
-      </Typography>
-      
-      <Button variant="contained" color="primary" onClick={() => newTodoRequest()}>
-        New Todo
-      </Button>
-    </Toolbar>
-  </AppBar>
+      <Toolbar>
+        <Typography variant="h6" className={classes.title}>
+          Todos
+        </Typography>
+        
+        <Button variant="contained" color="primary" onClick={() => newTodoRequest()}>
+          New Todo
+        </Button>
+      </Toolbar>
+    </AppBar>
   );
 }

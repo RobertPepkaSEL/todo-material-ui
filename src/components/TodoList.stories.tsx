@@ -32,7 +32,7 @@ One.args = {
 };
 
 
-const numbers = [...Array(10).keys()] as number[];
+const numbers = [1,2,3,4,5,6,7,8,9,10] as number[];
 
 export const Many = Template.bind({});
 Many.args = {
