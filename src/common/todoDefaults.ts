@@ -1,11 +1,23 @@
+import {v4 as uuid } from 'uuid';
+import Todo from '../models/Todo';
 
-export function makeDefault() {
+
+export function makeDefaultDetails() {
   return [
     {
       children: [
       { 
-        text: 'This is editable plain text, just like a <textarea>!' },
+        text: 'Todo details' },
       ],
     },
   ];
+}
+
+export function makeDefault() : Todo {
+  return {
+    id: uuid(),
+    title: 'New todo',
+    details: makeDefaultDetails(),
+    done: false,
+  };
 }

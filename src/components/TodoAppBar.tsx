@@ -20,22 +20,27 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export interface TodoAppBarProps {
-
+  onNewTodoRequest: () => void;
 }
 
 export default function TodoAppBar(props: TodoAppBarProps) {
+  const { onNewTodoRequest } = props;
   const classes = useStyles();
+
+  const newTodoRequest = () => {
+    onNewTodoRequest();
+  };
   
   return (
     <AppBar position="static">
     <Toolbar>
-      <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-        <MenuIcon />
-      </IconButton>
       <Typography variant="h6" className={classes.title}>
         Todos
       </Typography>
-      <Button color="inherit">Login</Button>
+      
+      <Button variant="contained" color="primary" onClick={() => newTodoRequest()}>
+        New Todo
+      </Button>
     </Toolbar>
   </AppBar>
   );
