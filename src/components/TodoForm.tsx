@@ -9,12 +9,16 @@ import TextField from '@material-ui/core/TextField';
 import TodoDetailsEditor from './TodoDetailsEditor';
 
 export interface TodoFormProps {
-  todo: Todo;
+  todo: Todo | undefined;
   onTodoChanged: (todo: Todo) => void;
 }
 
 export default function TodoForm(props: TodoFormProps) {
   const { todo, onTodoChanged } = props;
+
+  if (! todo) {
+    return <Box />;
+  }
 
   const handleTitleChanged = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
     event.preventDefault();

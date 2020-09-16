@@ -5,7 +5,7 @@ import { withHistory } from 'slate-history';
 
 
 export interface TodoDetailsEditorProps {
-  details: any;
+  details: Node[];
   onDetailsChanged: (details: Node[]) => void;
 }
 
@@ -19,7 +19,7 @@ export default function TodoDetailsEditor(props: TodoDetailsEditorProps) {
 
   return (
     <Slate editor={editor} value={details} onChange={value => handleChange(value)}>
-      <Editable placeholder="Enter some plain text..." />
+      <Editable placeholder="Enter details of your todo item here..." />
     </Slate>
   )
 }

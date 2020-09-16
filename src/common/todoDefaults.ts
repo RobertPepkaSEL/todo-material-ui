@@ -7,7 +7,7 @@ export function makeDefaultDetails() {
     {
       children: [
       { 
-        text: 'Todo details' },
+        text: '' },
       ],
     },
   ];
