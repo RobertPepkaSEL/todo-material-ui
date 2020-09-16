@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 
 import {v4 as uuid} from 'uuid';
+import { makeDefault } from '../common/todoDefaults';
 
 import Todo from '../models/Todo';
 
@@ -10,7 +11,7 @@ import Grid from '@material-ui/core/Grid';
 
 import TodoAppBar from './TodoAppBar';
 import TodoList from './TodoList';
-import TodoDetails from './TodoDetails';
+import TodoForm from './TodoForm';
 
 
 export interface TodoScreenProps {
@@ -20,10 +21,16 @@ export interface TodoScreenProps {
 export default function TodoScreen(props: TodoScreenProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [todos, setTodos] = useState<Todo[]>([
-    { id: uuid(), title: 'Example todo 1', contents: null, done: false },
-    { id: uuid(), title: 'Example todo 2', contents: null, done: false },
-    { id: uuid(), title: 'Example todo 3', contents: null, done: false },
+    { id: uuid(), title: 'Example todo 1', details: makeDefault(), done: false },
+    { id: uuid(), title: 'Example todo 2', details: makeDefault(), done: false },
+    { id: uuid(), title: 'Example todo 3', details: makeDefault(), done: false },
   ]);
+
+  const handleTodoChanged = (todo: Todo) => {
+    const newTodos = [...todos];
+    newTodos[selectedIndex] = {...todo};
+    setTodos(newTodos);
+  };
 
   return (
     <Container>
@@ -38,7 +45,10 @@ export default function TodoScreen(props: TodoScreenProps) {
         </Grid>
         <Grid item xs={9}>
           <Paper>
-            <TodoDetails todo={todos[selectedIndex]} />
+            <TodoForm
+              todo={todos[selectedIndex]} 
+              onTodoChanged={todo => handleTodoChanged(todo)}
+              />
           </Paper>
         </Grid>
       </Grid>
